@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "group/group_base.html" %}
 {% block pregroup %}
     <h1>{{ group.name }}</h1>
     <h2>Member count: {{ group.members.count }}</h2>
@@ -9,7 +9,7 @@
             <a class="btn btn-lg btn-fill btn-warning" href="{% url 'group:join' slug=group.slug %}"><span class="glyphicon glyphicon-ok-circle">Join</span></a>
         {% endif %}
     </div>
-{% endblock pregroup %}
+{% endblock %}
 
 {% block group_content %}
     <div class="col-md-8">
