@@ -17,7 +17,7 @@ class Group(models.Model):
     description_html = models.TextField(editable=False, default='', blank=True)
     members = models.ManyToManyField(User, through='GroupMember')
 
-    def __str__:
+    def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
@@ -27,18 +27,13 @@ class Group(models.Model):
 
     def get_absolute_url(self):
         return reverse('group:single', kwargs={'slug':self.slug})
-    pass
 
 class GroupMember(models.Model):
     group = models.ForeignKey(Group, related_name='memberships')
     user = models.ForeignKey(User, related_name='user_groups')
 
-    def __str__:
+    def __str__(self):
         return self.user.username
 
     class Meta:
         unique_together = ('group','user')
-
-
-
-    pass
